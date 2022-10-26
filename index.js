@@ -18,4 +18,4 @@ function timestamp() {
 
 module.exports = correlationId;
 
-// todo: add session id, add random, random() with 4 number
+// todo: add session id, add random, random() with X number
