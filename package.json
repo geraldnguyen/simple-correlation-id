@@ -6,6 +6,10 @@
   "scripts": {
     "test": "jest"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/geraldnguyen/simple-correlation-id.git"
+  },
   "keywords": [
     "correlation",
     "id",
