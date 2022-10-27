@@ -10,22 +10,46 @@ My gut feeling tells me that the following are good candidates to the `<pretty-u
 
 Introducing this **simple-correlation-id** package
 
-Sample Usage:
+Sample Usages (adapted from unit tests):
 
 ```javascript
+const correlationId = require('simple-correlation-id');
 
-const correlationId = require('./index');
+it('generating timestamp by default', () => {
+  const generated = correlationId(); 
+});
 
-const defaultFormat = correlationId();
+it('prefix source system if supply', () => {
+  const sourceSystem = 'test';
+  const generated = correlationId(sourceSystem); 
+});
 
-const withSourceSystemPrefix = correlationId(sourceSystem); 
+it('pass the id generator as a function', () => {
+  const generated = correlationId('test', () => 'id')
+});
 
-const withIdGenerator = correlationId('test', () => 'id')
+it('pass the id generator an option', () => {
+  const options = {
+    idGenerator: () => 'id'
+  };
+  const generated = correlationId('test', options);
+});
+
+it('advance options: default values', () => {
+  const options = { };
+  const generated = correlationId('test', options);
+});
+
+it('advance options: override randSize', () => {
+  const options = { randSize: 5 };
+  const generated = correlationId('test', options);
+});
+
+it('advance options: override sessionId', () => {
+  const options = { sessionIdInjector: () => 'session' };
+  const generated = correlationId('test', options);
+});
 
 ```
-
-TODO:
-- Suppport session id
-- Support random suffix with X number of digit
 
 NOTICE: The API and implementation may change frequently until a major version is achieved.
