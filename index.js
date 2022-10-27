@@ -46,5 +46,3 @@ function removeEmptyDashPrefix(ci) {
 }
 
 module.exports = correlationId;
-
-// todo: add session id, add random, random() with X number
