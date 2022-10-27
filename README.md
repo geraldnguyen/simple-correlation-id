@@ -1,4 +1,4 @@
-This is a simple correlation id generator where the purpose is to simply the generation of correlation id
+This is a simple correlation id generator where the purpose is to simplify the generation of correlation id
 
 A correlation id has the following format: `<source system>-<pretty-unique-id>`
 
