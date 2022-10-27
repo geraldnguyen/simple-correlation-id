@@ -27,3 +27,5 @@ const withIdGenerator = correlationId('test', () => 'id')
 TODO:
 - Suppport session id
 - Support random suffix with X number of digit
+
+NOTICE: The API and implementation may change frequently until a major version is achieved.
