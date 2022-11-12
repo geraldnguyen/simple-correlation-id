@@ -1,6 +1,6 @@
 {
   "name": "simple-correlation-id",
-  "version": "1.0.0",
+  "version": "0.3.0",
   "description": "A simple correlation-id generator",
   "main": "build/index.js",
   "files": ["build/!(*.test.*)"],
