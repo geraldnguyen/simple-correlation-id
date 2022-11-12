@@ -5,12 +5,12 @@ type UniqueId = string | number;
 type UniqueIdGenerator = () => UniqueId;
 
 interface UniqueIdGeneratorOption {
-  sessionIdInjector: () => UniqueId;
+  sessionIdInjector?: () => UniqueId;
   idGenerator?: UniqueIdGenerator;
-  randSize?: number
+  randSize?: number;
 };
 
-function correlationId(system: System = '', uniqueIdGeneratorOrOption: UniqueIdGenerator | UniqueIdGeneratorOption = timestamp) {
+function correlationId(system: System = '', uniqueIdGeneratorOrOption: UniqueIdGeneratorOption | UniqueIdGenerator = timestamp) {
   let uniqueIdGenerator: UniqueIdGenerator;
 
   // advance options
@@ -26,7 +26,7 @@ function correlationId(system: System = '', uniqueIdGeneratorOrOption: UniqueIdG
   return removeEmptyDashPrefix(ci);
 };
 
-function advanceIdGenerator(option : UniqueIdGeneratorOption) {
+function advanceIdGenerator(option : UniqueIdGeneratorOption): () => UniqueId {
   const { sessionIdInjector = empty, randSize = 4 } = option;
 
   const defaultIdGenerator = () => {
@@ -63,5 +63,5 @@ function removeEmptyDashPrefix(ci: string) {
   return ci.replace(/^-/, '');  // remove prefix - caused by empty system
 }
 
-export = correlationId;
-// export default correlationId;
+// export = correlationId;
+export default correlationId;
