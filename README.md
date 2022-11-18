@@ -58,3 +58,5 @@ it('advance options: override sessionId', () => {
 });
 
 ```
+
+Supporting Typescript
