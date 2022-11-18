@@ -13,6 +13,7 @@ In my opinion, the following are good candidates to the `<pretty-unique-id>` par
 Examples:
 - `ui-123e4567-e89b-12d3-a456-426614174000`
 - `ui-1666797049350`
+- `ui-1666797049350-5663`
 - `storefront-johndoe-1666797049350`
 - `shop-johndoe-1666797049350-2514`
 
@@ -20,7 +21,7 @@ Examples:
 Sample Usages (adapted from unit tests):
 
 ```javascript
-const correlationId = require('simple-correlation-id');
+const { correlationId } = require('simple-correlation-id');
 
 it('generating timestamp by default', () => {
   const generated = correlationId(); 

@@ -1,4 +1,4 @@
-import correlationId from './index';
+import {correlationId } from './index';
 
 it('generating timestamp by default', () => {
   const beforeTs = Date.now();

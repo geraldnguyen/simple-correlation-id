@@ -10,7 +10,7 @@ interface UniqueIdGeneratorOption {
   randSize?: number;
 };
 
-function correlationId(system: System = '', uniqueIdGeneratorOrOption: UniqueIdGeneratorOption | UniqueIdGenerator = timestamp) {
+export function correlationId(system: System = '', uniqueIdGeneratorOrOption: UniqueIdGeneratorOption | UniqueIdGenerator = timestamp) {
   let uniqueIdGenerator: UniqueIdGenerator;
 
   // advance options
@@ -41,7 +41,7 @@ function advanceIdGenerator(option : UniqueIdGeneratorOption): () => UniqueId {
   
 }
 
-function fixedSizeRandom(randSize: number) {
+export function fixedSizeRandom(randSize: number) {
   const firstRand = Math.random();
   const secondRand = firstRand + Math.pow(10, -randSize);
   const thirdRand = secondRand < 0.1 ? secondRand + 0.1 : secondRand;
@@ -55,12 +55,10 @@ function empty() {
   return '';
 }
 
-function timestamp() {
+export function timestamp() {
   return Date.now();
 }
 
 function removeEmptyDashPrefix(ci: string) {
   return ci.replace(/^-/, '');  // remove prefix - caused by empty system
 }
-
-export default correlationId;
