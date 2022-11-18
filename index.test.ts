@@ -1,4 +1,3 @@
-// const correlationId = require('./index');
 import correlationId from './index';
 
 it('generating timestamp by default', () => {

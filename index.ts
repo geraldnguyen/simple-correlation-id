@@ -63,5 +63,4 @@ function removeEmptyDashPrefix(ci: string) {
   return ci.replace(/^-/, '');  // remove prefix - caused by empty system
 }
 
-// export = correlationId;
 export default correlationId;
